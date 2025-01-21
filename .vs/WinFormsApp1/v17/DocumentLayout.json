@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\winformsapp1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\davi8\\onedrive\\pasta pessoal\\winformsapp1\\winformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\davi8\\onedrive\\pasta pessoal\\winformsapp1\\winformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\davi8\\onedrive\\pasta pessoal\\winformsapp1\\winformsapp1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\winformsapp1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\davi8\\onedrive\\pasta pessoal\\winformsapp1\\winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|c:\\users\\davi8\\onedrive\\pasta pessoal\\winformsapp1\\winformsapp1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF4B5A29-B90F-4787-914E-A98D026AFF8F}|WinFormsApp1\\WinFormsApp1.csproj|solutionrelative:winformsapp1\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form1.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form1.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form1.cs [Projeto]",
+              "RelativeToolTip": "WinFormsApp1\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T16:19:20.208Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form1.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form1.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form1.cs",
+              "RelativeToolTip": "WinFormsApp1\\Form1.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAiwA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T16:19:20.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form2.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form2.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form2.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form2.cs [Projeto]",
+              "RelativeToolTip": "WinFormsApp1\\Form2.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T16:19:19.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form2.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form2.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form2.cs",
+              "RelativeToolTip": "WinFormsApp1\\Form2.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAArwBUAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T19:04:26.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form3.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form3.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form3.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form3.cs [Projeto]",
+              "RelativeToolTip": "WinFormsApp1\\Form3.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T17:43:47.239Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form3.cs",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form3.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form3.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form3.cs",
+              "RelativeToolTip": "WinFormsApp1\\Form3.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T17:43:57.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form4.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form4.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form4.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form4.cs [Design]",
+              "RelativeToolTip": "WinFormsApp1\\Form4.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T16:44:24.745Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form4.cs",
+              "DocumentMoniker": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form4.cs",
+              "RelativeDocumentMoniker": "WinFormsApp1\\Form4.cs",
+              "ToolTip": "C:\\Users\\Davi8\\OneDrive\\pasta pessoal\\WinFormsApp1\\WinFormsApp1\\Form4.cs",
+              "RelativeToolTip": "WinFormsApp1\\Form4.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwCEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T17:13:29.677Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
