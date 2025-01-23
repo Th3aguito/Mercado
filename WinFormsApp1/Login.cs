@@ -65,7 +65,8 @@ namespace WinFormsApp1
 
         public void button1_Click_1(object sender, EventArgs e)
         {
-            MySqlDataReader dr;
+            
+             MySqlDataReader dr;
             string cpf = "";
             string senha = "";
             if (txtSenha.Text.Trim() == "")

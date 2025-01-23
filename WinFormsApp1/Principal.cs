@@ -230,7 +230,7 @@ namespace WinFormsApp1
                 if (valor_final < 0)
                 {
                     lblTroco.Text = "Faltam ";
-                    valor_final = valor_final + valor_Compra;
+                    valor_final = valor_recebido - valor_Compra;
                     LblDevolver.Text = valor_final.ToString();
 
 

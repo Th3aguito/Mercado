@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj": {}
+    "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\WinFormsApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj": {
+    "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\WinFormsApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectUniqueName": "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\WinFormsApp1.csproj",
         "projectName": "WinFormsApp1",
-        "projectPath": "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+        "projectPath": "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\WinFormsApp1.csproj",
         "packagesPath": "C:\\Users\\thiago.spcosta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\obj\\",
+        "outputPath": "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thiago.spcosta\\AppData\\Roaming\\NuGet\\NuGet.Config",

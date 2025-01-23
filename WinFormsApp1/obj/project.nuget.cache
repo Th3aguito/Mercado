@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vT7dKOWdZ/oxw1ruPLgKhJhvG6Z5mCPLUxNqOqA7TxdUUVxld3r1pi88TQLt6AX0l1loK/QSQx9DKbF8zkv2Vg==",
+  "dgSpecHash": "hSv6IdpUJba/ful4okJqg0kVQ7IMrJYAvxfn0SIJTbkmdhHqJaxF0jdbzNPN0rS0Tib2u7W3VdiaMTY6VnlT/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thiago.spcosta\\source\\repos\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+  "projectFilePath": "C:\\Users\\thiago.spcosta\\OneDrive - SENAC - SP\\Documentos\\GitHub\\Mercado\\WinFormsApp1\\WinFormsApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thiago.spcosta\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\thiago.spcosta\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
