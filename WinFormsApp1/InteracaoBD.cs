@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using WinFormsApp1;
+using static System.Net.Mime.MediaTypeNames;
 
 public class InteracaoBD
 {
@@ -63,4 +64,12 @@ public class InteracaoBD
         }
     }
 
+
+
+
+    public string AddUsuario(string cpf, string Nome, string DtNasc, string Funcao, string Cargo, string senha)
+    {
+
+
+    }
 }
