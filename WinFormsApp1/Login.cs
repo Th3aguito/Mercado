@@ -65,8 +65,7 @@ namespace WinFormsApp1
 
         public void button1_Click_1(object sender, EventArgs e)
         {
-            
-             MySqlDataReader dr;
+
             string cpf = "";
             string senha = "";
             if (txtSenha.Text.Trim() == "")
@@ -78,48 +77,21 @@ namespace WinFormsApp1
             }
             else
             {
+                string resultadoBD = InteracaoBD.InstanciaPublica().LoginUsuario(MskUsuario.Text, txtSenha.Text);
 
-
-
-                try
+                if (resultadoBD == "nenhum")
                 {
-                    string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
-                    MySqlConnection conexao = new MySqlConnection(Conexao);
-
-                    MySqlCommand comando = new MySqlCommand();
-                    string sql;
-                    sql = "select Cpf, Senha, Funcao, Nome from Usuario where Cpf = ('" + MskUsuario.Text + "') and Senha =  (" + txtSenha.Text + ");";
-                    conexao.Open();
-                    comando.Connection = conexao;
-                    comando.CommandText = sql;
-                    dr = comando.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        cpf = dr.GetString(0);
-                        senha = dr.GetString(1);
-                        variaveis.Perfil = dr.GetString(2);
-                        variaveis.Usuario = dr.GetString(3);
-                    }
-                    if (cpf.ToString() == "" && senha.ToString() == "")
-                    {
-                        LblIncorreto.Visible = true;
-                        LblIncorreto.ForeColor = Color.Red;
-                        MskUsuario.ForeColor = Color.Red;
-                        txtSenha.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-
-                        Form_Principal form2 = new Form_Principal();
-                        form2.Show();
-
-                        this.Hide();
-                    }
-                    conexao.Close();
+                    LblIncorreto.Visible = true;
+                    LblIncorreto.ForeColor = Color.Red;
+                    MskUsuario.ForeColor = Color.Red;
+                    txtSenha.ForeColor = Color.Red;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Form_Principal form2 = new Form_Principal();
+                    form2.Show();
+
+                    this.Hide();
                 }
             }
         }
