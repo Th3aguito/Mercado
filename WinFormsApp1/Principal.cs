@@ -63,7 +63,7 @@ namespace WinFormsApp1
             {
 
 
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
+                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = 123456;";
                 MySqlConnection conexao = new MySqlConnection(Conexao);
 
                 MySqlCommand comando = new MySqlCommand();
@@ -178,7 +178,7 @@ namespace WinFormsApp1
 
                 try
                 {
-                    MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
+                    MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = 123456;");
                     int RowAffect = 0;
                     MySqlCommand Comando = new MySqlCommand();
                     String sql;

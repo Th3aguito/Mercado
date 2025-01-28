@@ -31,7 +31,7 @@
             CboxEscolha = new ComboBox();
             lblTitulo = new Label();
             LblCpf = new Label();
-            TxtNome = new TextBox();
+            txtNome = new TextBox();
             lblNome = new Label();
             LblDtNasc = new Label();
             LblCadSenha = new Label();
@@ -82,13 +82,13 @@
             LblCpf.Visible = false;
             LblCpf.Click += label2_Click;
             // 
-            // TxtNome
+            // txtNome
             // 
-            TxtNome.Location = new Point(180, 207);
-            TxtNome.Name = "TxtNome";
-            TxtNome.Size = new Size(100, 23);
-            TxtNome.TabIndex = 4;
-            TxtNome.Visible = false;
+            txtNome.Location = new Point(180, 207);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(100, 23);
+            txtNome.TabIndex = 4;
+            txtNome.Visible = false;
             // 
             // lblNome
             // 
@@ -233,6 +233,7 @@
             MaskedDtNasc.Size = new Size(100, 23);
             MaskedDtNasc.TabIndex = 21;
             MaskedDtNasc.Visible = false;
+            MaskedDtNasc.MaskInputRejected += MaskedDtNasc_MaskInputRejected;
             // 
             // BtnAdd
             // 
@@ -267,7 +268,7 @@
             Controls.Add(LblFun);
             Controls.Add(LblDtNasc);
             Controls.Add(lblNome);
-            Controls.Add(TxtNome);
+            Controls.Add(txtNome);
             Controls.Add(LblCpf);
             Controls.Add(lblTitulo);
             Controls.Add(CboxEscolha);
@@ -282,7 +283,7 @@
         private ComboBox CboxEscolha;
         private Label lblTitulo;
         private Label LblCpf;
-        private TextBox TxtNome;
+        private TextBox txtNome;
         private Label lblNome;
         private Label LblDtNasc;
         private Label LblCadSenha;

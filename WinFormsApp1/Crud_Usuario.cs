@@ -33,7 +33,7 @@ namespace WinFormsApp1
                 LblFun.Visible = true;
 
                 MaskedCpf.Visible = true;
-                TxtNome.Visible = true;
+                txtNome.Visible = true;
                 MaskedDtNasc.Visible = true;
                 TxtSenha.Visible = true;
                 TxtCargo.Visible = true;
@@ -52,7 +52,7 @@ namespace WinFormsApp1
                 LblCargo.Visible = false;
                 LblFun.Visible = false;
                 MaskedCpf.Visible = true;
-                TxtNome.Visible = false;
+                txtNome.Visible = false;
                 MaskedDtNasc.Visible = false;
                 TxtSenha.Visible = false;
                 TxtCargo.Visible = false;
@@ -72,7 +72,7 @@ namespace WinFormsApp1
                 LblFun.Visible = false;
 
                 MaskedCpf.Visible = true;
-                TxtNome.Visible = false;
+                txtNome.Visible = false;
                 MaskedDtNasc.Visible = false;
                 TxtSenha.Visible = false;
                 TxtCargo.Visible = false;
@@ -100,7 +100,7 @@ namespace WinFormsApp1
             {
 
 
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
+                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = 123456;";
                 MySqlConnection conexao = new MySqlConnection(Conexao);
 
                 MySqlCommand comando = new MySqlCommand();
@@ -129,15 +129,17 @@ namespace WinFormsApp1
                     LblDtNasc.Visible = true;
                     LblCargo.Visible = true;
                     LblFun.Visible = true;
-                    TxtNome.Visible = true;
+                    txtNome.Visible = true;
                     MaskedDtNasc.Visible = true;
                     TxtCargo.Visible = true;
                     TxtFuncao.Visible = true;
                     MaskedCpf.Text = cpf;
-                    TxtNome.Text = nome;
+                    txtNome.Text = nome;
                     MaskedDtNasc.Text = Data_Nasc;
                     TxtFuncao.Text = Funcao;
                     TxtCargo.Text = Cargo;
+                    TxtSenha.Visible= true;
+                    LblCadSenha.Visible = true;
                     BtnAtualizar.Visible = true;
                 }
                 conexao.Close();
@@ -150,31 +152,44 @@ namespace WinFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+            if (MaskedCpf.Text == "")
             {
-                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
-                int RowAffect = 0;
-                MySqlCommand Comando = new MySqlCommand();
-                String sql;
-                sql = "UPDATE Usuario SET Nome = '" + TxtNome.Text + "', Cpf = '" + MaskedCpf.Text + "', Data_Nasc = '" + MaskedDtNasc.Text + "', Funcao =  '" + TxtFuncao.Text + "', Cargo = '" + TxtCargo.Text + "', Senha = '" + TxtSenha.Text + "' WHERE Cpf = " + "'" + MaskedCpf.Text + "'" + ";";
-                conexao.Open();
-                Comando.Connection = conexao;
-                Comando.CommandText = sql;
-                RowAffect = Comando.ExecuteNonQuery();
-                if (RowAffect == 1)
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (txtNome.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (MaskedDtNasc.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (TxtFuncao.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (TxtCargo.Text == "")
+            {
+
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (TxtSenha.Text == "")
+            {
+
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                bool resultadoBD = InteracaoBD.InstanciaPublica().AddUpdate(MaskedCpf.Text, txtNome.Text, MaskedDtNasc.Text, TxtFuncao.Text, TxtCargo.Text, TxtSenha.Text);
+
+                if (resultadoBD == true)
                 {
-                    MessageBox.Show("Atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuário atualizado com sucesso!", "Aviso", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível atualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Erro ao atualizar. Tente novamente mais tarde.", "Aviso", MessageBoxButtons.OK);
                 }
-                conexao.Close();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
             }
         }
 
@@ -182,7 +197,7 @@ namespace WinFormsApp1
         {
             try
             {
-                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
+                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = 123456;");
                 int RowAffect = 0;
                 MySqlCommand comando = new MySqlCommand();
                 String sql;
@@ -194,7 +209,7 @@ namespace WinFormsApp1
                 if (RowAffect == 1)
                 {
                     MessageBox.Show("Deletado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TxtNome.Text = "";
+                    txtNome.Text = "";
                     MaskedDtNasc.Text = "";
                     TxtFuncao.Text = "";
                     TxtCargo.Text = "";
@@ -242,57 +257,48 @@ namespace WinFormsApp1
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            int RowAffect = 0;
-            try
+
+
+            if (MaskedCpf.Text == "")
             {
-                string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
-                MySqlConnection conexao = new MySqlConnection(strigConexao);
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (txtNome.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (MaskedDtNasc.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (TxtFuncao.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (TxtCargo.Text == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                bool resultadoBD = InteracaoBD.InstanciaPublica().AddUsuario(MaskedCpf.Text, txtNome.Text, MaskedDtNasc.Text, TxtFuncao.Text, TxtCargo.Text, TxtSenha.Text);
 
-                MySqlCommand comando = new MySqlCommand();
-                string sql;
-                sql = "INSERT INTO Usuario (Cpf, Nome, Data_Nasc, Funcao, Cargo, Senha) VALUES " + "('" + MaskedCpf.Text + "', '" + TxtNome.Text + "', '" + MaskedDtNasc.Text + "', '" + TxtFuncao.Text + "', '" + TxtCargo.Text + "' , ' " + TxtSenha.Text + "')";
-                conexao.Open();
-                comando.Connection = conexao;
-                comando.CommandText = sql;
-
-                if (MaskedCpf.Text == "")
+                if (resultadoBD == true)
                 {
-                    MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("Usuário cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (TxtNome.Text == "")
-                {
-                    MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                }
-                else if (MaskedDtNasc.Text == "")
-                {
-                    MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                }
-                else if (TxtFuncao.Text == "")
-                {
-                    MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                }
-                else if (TxtCargo.Text == "")
-                {
-                    MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                }
-
                 else
-                    RowAffect = comando.ExecuteNonQuery();
-
-                if (RowAffect == 1)
                 {
-                    MessageBox.Show("Dados adicionados com sucesso", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                else if (RowAffect == 0)
-                {
-                    MessageBox.Show("Ocorreu um erro ao tentar adicionar dados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Erro no cadastro do usuário. Tente novamente mais tarde.", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+
+        }
+
+        private void MaskedDtNasc_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
