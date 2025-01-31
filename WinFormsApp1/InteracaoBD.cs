@@ -21,7 +21,7 @@ public class InteracaoBD
         {
             try
             {
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = 123456;";
+                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
                 MySqlConnection conexao = new MySqlConnection(Conexao);
 
                 MySqlCommand comando = new MySqlCommand();
@@ -70,7 +70,7 @@ public class InteracaoBD
 
         try
         {
-            string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = 123456;";
+            string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
             MySqlConnection conexao = new MySqlConnection(strigConexao);
 
             MySqlCommand comando = new MySqlCommand();
@@ -110,11 +110,11 @@ public class InteracaoBD
 
         try
         {
-            MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = 123456;");
+            MySqlConnection conexao = new MySqlConnection("Server = localhost; database = mercado; user ID = root; password = ;");
             
             MySqlCommand Comando = new MySqlCommand();
             String sql;
-            sql = "UPDATE Usuario SET Nome = '" + Nome + "', Cpf = '" + cpf + "', Data_Nasc = '" + DtNasc + "', Funcao =  '" + Funcao + "', Cargo = '" + Cargo + "', Senha = '" + senha + "' WHERE Cpf = " + "'" + cpf + "'" + ";";
+            sql = "UPDATE Usuario SET Nome = '" + Nome + "', Cpf = '" + cpf + "', Data_Nasc = '" + DtNasc + "', Funcao =  '" + Funcao + "', Cargo = '" + Cargo + "' WHERE Cpf = " + "'" + cpf + "'";
             conexao.Open();
             Comando.Connection = conexao;
             Comando.CommandText = sql;

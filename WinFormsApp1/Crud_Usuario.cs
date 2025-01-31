@@ -100,7 +100,7 @@ namespace WinFormsApp1
             {
 
 
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = 123456;";
+                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
                 MySqlConnection conexao = new MySqlConnection(Conexao);
 
                 MySqlCommand comando = new MySqlCommand();
@@ -173,14 +173,10 @@ namespace WinFormsApp1
 
                 MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
             }
-            else if (TxtSenha.Text == "")
-            {
-
-                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-            }
+          
             else
             {
-                bool resultadoBD = InteracaoBD.InstanciaPublica().AddUpdate(MaskedCpf.Text, txtNome.Text, MaskedDtNasc.Text, TxtFuncao.Text, TxtCargo.Text, TxtSenha.Text);
+                bool resultadoBD = InteracaoBD.InstanciaPublica().AddUpdate(txtNome.Text, MaskedCpf.Text, MaskedDtNasc.Text, TxtFuncao.Text, TxtCargo.Text, TxtSenha.Text);
 
                 if (resultadoBD == true)
                 {
