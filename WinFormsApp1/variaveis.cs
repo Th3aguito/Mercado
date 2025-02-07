@@ -5,7 +5,7 @@ namespace WinFormsApp1
 	{
 		public static string Perfil;
 		public static string Usuario;
-
+		vraaum
 	}
 	
 }
