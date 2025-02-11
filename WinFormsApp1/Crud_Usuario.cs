@@ -193,7 +193,7 @@ namespace WinFormsApp1
         {
             try
             {
-                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = 123456;");
+                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
                 int RowAffect = 0;
                 MySqlCommand comando = new MySqlCommand();
                 String sql;

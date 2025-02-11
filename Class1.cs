@@ -58,7 +58,7 @@ public class InteracaoBD
             catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return tipoDoUsuario;subindoo
+                return tipoDoUsuario;
             }
         }
     }
