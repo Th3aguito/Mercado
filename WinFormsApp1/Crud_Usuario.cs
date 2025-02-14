@@ -89,64 +89,30 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MySqlDataReader dr;
-            string cpf = "";
-            string nome = "";
-            string Data_Nasc = "";
-            string Funcao = "";
-            string Cargo = "";
+            string cpf, Nome, DtNasc, Funcao, Cargo;
+            bool resultadoBD = InteracaoBD.InstanciaPublica().searchUsuario(MaskedCpf.Text,out Nome, out DtNasc, out Funcao, out Cargo);
 
-            try
+            if(resultadoBD== true)
             {
-
-
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
-                MySqlConnection conexao = new MySqlConnection(Conexao);
-
-                MySqlCommand comando = new MySqlCommand();
-                string sql;
-                sql = "select * from Usuario where cpf = " + "('" + MaskedCpf.Text + "')";
-                conexao.Open();
-                comando.Connection = conexao;
-                comando.CommandText = sql;
-                dr = comando.ExecuteReader();
-                while (dr.Read())
-                {
-                    cpf = dr.GetString(0);
-                    nome = dr.GetString(1);
-                    Data_Nasc = dr.GetString(2);
-                    Funcao = dr.GetString(3);
-                    Cargo = dr.GetString(4);
-
-                }
-                if (cpf.ToString() == "")
-                {
-                    MessageBox.Show("Não há nenhum registro no banco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    lblNome.Visible = true;
-                    LblDtNasc.Visible = true;
-                    LblCargo.Visible = true;
-                    LblFun.Visible = true;
-                    txtNome.Visible = true;
-                    MaskedDtNasc.Visible = true;
-                    TxtCargo.Visible = true;
-                    TxtFuncao.Visible = true;
-                    MaskedCpf.Text = cpf;
-                    txtNome.Text = nome;
-                    MaskedDtNasc.Text = Data_Nasc;
-                    TxtFuncao.Text = Funcao;
-                    TxtCargo.Text = Cargo;
-                    TxtSenha.Visible= true;
-                    LblCadSenha.Visible = true;
-                    BtnAtualizar.Visible = true;
-                }
-                conexao.Close();
+                lblNome.Visible = true;
+                LblDtNasc.Visible = true;
+                LblCargo.Visible = true;
+                LblFun.Visible = true;
+                txtNome.Visible = true;
+                MaskedDtNasc.Visible = true;
+                TxtCargo.Visible = true;
+                TxtFuncao.Visible = true;
+                txtNome.Text = Nome;
+                MaskedDtNasc.Text = DtNasc;
+                TxtFuncao.Text = Funcao;
+                TxtCargo.Text = Cargo;
+                TxtSenha.Visible = true;
+                LblCadSenha.Visible = true;
+                BtnAtualizar.Visible = true;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
 
@@ -191,38 +157,15 @@ namespace WinFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
+            bool resultadoBD = InteracaoBD.InstanciaPublica().RemoverUsuario(txtNome.Text, MaskedCpf.Text, MaskedDtNasc.Text, TxtFuncao.Text, TxtCargo.Text, TxtSenha.Text);
+
+            if(resultadoBD == true)
             {
-                MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
-                int RowAffect = 0;
-                MySqlCommand comando = new MySqlCommand();
-                String sql;
-                sql = "DELETE FROM Usuario WHERE Cpf = " + " '" + MaskedCpf.Text + "'";
-                conexao.Open();
-                comando.Connection = conexao;
-                comando.CommandText = sql;
-                RowAffect = comando.ExecuteNonQuery();
-                if (RowAffect == 1)
-                {
-                    MessageBox.Show("Deletado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtNome.Text = "";
-                    MaskedDtNasc.Text = "";
-                    TxtFuncao.Text = "";
-                    TxtCargo.Text = "";
-                    MaskedCpf.Focus();
-
-                }
-                else
-                {
-
-                    MessageBox.Show("Não foi possível deletar, verifique os campos nulos e tente novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    MaskedCpf.Focus();
-                }
+                MessageBox.Show("Usuário removido com sucesso!", "Aviso", MessageBoxButtons.OK);
             }
-
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
+                MessageBox.Show("Usuário não removido, tente novamente!", "Aviso", MessageBoxButtons.OK);
             }
         }
 

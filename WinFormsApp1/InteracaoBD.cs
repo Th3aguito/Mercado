@@ -144,6 +144,148 @@ public class InteracaoBD
             //MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
         }
     }
+    public bool RemoverUsuario(string Nome, string cpf, string DtNasc, string Funcao, string Cargo, string senha)
+    {
+        int RowAffect = 0;
+        MySqlDataReader dr;
+        try
+        {
+
+            MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
+            //int RowAffect = 0;
+            MySqlCommand comando = new MySqlCommand();
+            String sql;
+            sql = "DELETE FROM Usuario WHERE Cpf = " + " '" + cpf + "'";
+            conexao.Open();
+            comando.Connection = conexao;
+            comando.CommandText = sql;
+            RowAffect = comando.ExecuteNonQuery();
+            if (RowAffect >= 1)
+            {
+                //MessageBox.Show("Deletado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Nome = "";
+                //cpf = "";
+                //DtNasc = "";
+                //Funcao = "";
+                //Cargo = "";
+                //senha = "";
+                //
+                return true;
+            }
+            else
+            {
+                return false;
+                //MessageBox.Show("Não foi possível deletar, verifique os campos nulos e tente novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+            }
+        }
+
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
+            return false;
+        }
+    }
+
+    public bool searchUsuario(string cpf, out string Nome, out string DtNasc, out string Funcao, out string Cargo)
+    {
+        MySqlDataReader dr;
+        Nome = ""; DtNasc = ""; Funcao = ""; Cargo = "";
+        try
+        {
+
+
+            string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
+            MySqlConnection conexao = new MySqlConnection(Conexao);
+
+            MySqlCommand comando = new MySqlCommand();
+            string sql;
+            sql = "select * from Usuario where cpf = " + "('" + cpf + "')";
+            conexao.Open();
+            comando.Connection = conexao;
+            comando.CommandText = sql;
+            dr = comando.ExecuteReader();
+            while (dr.Read())
+            {
+                cpf = dr.GetString(0);
+                Nome = dr.GetString(1);
+                DtNasc = dr.GetString(2);
+                Funcao = dr.GetString(3);
+                Cargo = dr.GetString(4);
+
+            }
+            conexao.Close();
+            if (cpf.ToString() == "")
+            {
+                MessageBox.Show("Não há nenhum registro no banco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return false;
+        }
+    }
+
+    public bool AddProduto( string Codigo, string Descricao, string Valor)
+    {
+        int RowAffect = 0;
+        try
+        {
+
+
+            string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
+            MySqlConnection conexao = new MySqlConnection(strigConexao);
+
+            MySqlCommand comando = new MySqlCommand();
+            string sql;
+            sql = "INSERT INTO Produtos (Produto, Descricao, Valor) VALUES (" + Codigo + ", '" + Descricao + "'," + Valor + ");";
+            conexao.Open();
+            comando.Connection = conexao;
+            comando.CommandText = sql;
+            if (Codigo == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (Descricao == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else if (Valor == "")
+            {
+                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+                RowAffect = comando.ExecuteNonQuery();
+
+            if (RowAffect >= 1)
+            {
+                MessageBox.Show("Dados adicionados com sucesso", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+                //TxtCodigo.Text = "";
+                //TxtDescricao.Text = "";
+                //TxtValor.Text = "";
+                //TxtDescricao.Focus();
+
+            }
+            else if (RowAffect == 0)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar adicionar dados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return false;
+        }
+    }
          
 }
 

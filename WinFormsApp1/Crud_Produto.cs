@@ -21,6 +21,19 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool resultadoBD = InteracaoBD.InstanciaPublica().AddProduto(TxtCodigo.Text, TxtDescricao.Text, TxtValor.Text);
+            if (resultadoBD==true)
+            {
+                MessageBox.Show("Produto cadastrado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TxtCodigo.Text = "";
+                TxtDescricao.Text = "";
+                TxtValor.Text = "";
+                TxtDescricao.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao cadastrar produto, tente novamente!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -85,58 +98,8 @@ namespace WinFormsApp1
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
-           
-
-
-                int RowAffect = 0;
-                try
-                {
-
-
-                    string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
-                    MySqlConnection conexao = new MySqlConnection(strigConexao);
-
-                    MySqlCommand comando = new MySqlCommand();
-                    string sql;
-                    sql = "INSERT INTO Produtos (Produto, Descricao, Valor) VALUES (" + TxtCodigo.Text + ", '" + TxtDescricao.Text + "'," + TxtValor.Text + ");";
-                    conexao.Open();
-                    comando.Connection = conexao;
-                    comando.CommandText = sql;
-                    if (TxtCodigo.Text == "")
-                    {
-                        MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                    }
-                    else if (TxtDescricao.Text == "")
-                    {
-                        MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                    }
-                    else if (TxtValor.Text == "")
-                    {
-                        MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-                    }
-                    else
-                        RowAffect = comando.ExecuteNonQuery();
-
-                    if (RowAffect == 1)
-                    {
-                        MessageBox.Show("Dados adicionados com sucesso", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        TxtCodigo.Text = "";
-                        TxtDescricao.Text = "";
-                        TxtValor.Text = "";
-                        TxtDescricao.Focus();
-
-                    }
-                    else if (RowAffect == 0)
-                    {
-                        MessageBox.Show("Ocorreu um erro ao tentar adicionar dados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+                
+        }
             
         
 
