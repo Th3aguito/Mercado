@@ -14,6 +14,13 @@ namespace TestesMercado
         [TestMethod]
         public void TesteQuantidade()
         {
+            string codigo = "1031";
+            int Quantidade = 1;
+            string Prod = "";
+            string Desc = "";
+            double Valor = 0;
+
+            Assert.IsTrue(InteracaoBD.InstanciaPublica().inserirProd("1031", 1, out Prod, out Desc, out Valor));
 
         }
 

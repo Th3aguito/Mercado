@@ -54,50 +54,17 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MySqlDataReader dr;
-            string Produto = "";
-            string Descricao = "";
-            string Valor = "";
+            string Produto, Descricao;
+            double PrecoProduto;
 
             try
             {
-
-
-                string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ";
-                MySqlConnection conexao = new MySqlConnection(Conexao);
-
-                MySqlCommand comando = new MySqlCommand();
-                string sql;
-                sql = "select * from Produtos where Produto = " + txtcodigo.Text + ";";
-                conexao.Open();
-                comando.Connection = conexao;
-                comando.CommandText = sql;
-                dr = comando.ExecuteReader();
-                while (dr.Read())
+                bool resultadoBD = InteracaoBD.InstanciaPublica().inserirProd(txtcodigo.Text, Convert.ToInt32(mskquantidade.Text), out Produto, out Descricao, out PrecoProduto);
+                if (resultadoBD == true)
                 {
-                    Produto = dr.GetInt32(0).ToString();
-                    Descricao = dr.GetString(1);
-                    Valor = dr.GetString(2);
-
-                }
-                if (Produto.ToString() == "" && Descricao.ToString() == "" && Valor.ToString() == "")
-                {
-                    MessageBox.Show("Não há nenhum registro no banco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    double total = 0, quantidade = 0;
-                    txtcodigo.Text = Produto;
-                    txtpreco.Text = Descricao;
-                    txtpreco.Text = Valor;
-
-                    quantidade = double.Parse(mskquantidade.Text);
-                    total = double.Parse(txtpreco.Text);
-                    double Preco_produto = total * quantidade;
-
-                    txttotal.Text = Preco_produto.ToString();
-                    LboxNotas.Items.Add(Produto + " | " + Descricao + " | " + quantidade + " | " + "R$ " + Preco_produto);
-                    Preco_final = Preco_final + Preco_produto;
+                    txttotal.Text = PrecoProduto.ToString();
+                    LboxNotas.Items.Add(Produto + " | " + Descricao + " | " + mskquantidade.Text + " | " + "R$ " + PrecoProduto);
+                    Preco_final = Preco_final + PrecoProduto;
                     LblPrecoFinal.Text = Preco_final.ToString();
                     LblPreenchaUni.Visible = false;
                     LblPreenchaUni.ForeColor = Color.Black;
@@ -110,25 +77,21 @@ namespace WinFormsApp1
                     txttotal.Text = "";
 
                 }
-                conexao.Close();
             }
-            //catch ()
-            //{
-            //    MessageBox.Show("Preencha os campos em brancos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    lblPreenchaNome.Visible = true;
-            //    lblPreenchaNome.ForeColor = Color.Red;
-            //}
-            catch (FormatException ex)
-            {
+           
+                catch (FormatException ex)
+             {
                 MessageBox.Show("Preencha os campos em brancos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LblPreenchaUni.Visible = true;
                 LblPreenchaUni.ForeColor = Color.Red;
             }
-            catch (Exception ex)
-            {
+        catch (Exception ex)
+        {
 
                 MessageBox.Show("Ocorreu um erro ao tentar acessar o banco" + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+
         }
 
         private void btnDinheiro_Click(object sender, EventArgs e)

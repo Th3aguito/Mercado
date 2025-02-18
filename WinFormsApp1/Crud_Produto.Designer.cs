@@ -76,7 +76,7 @@
             BtnAddProduto.Size = new Size(70, 58);
             BtnAddProduto.TabIndex = 5;
             BtnAddProduto.UseVisualStyleBackColor = false;
-            BtnAddProduto.Click += button2_Click_1;
+            BtnAddProduto.Click += Click_ButtonAddProduto;
             // 
             // BtnAtualizarProduto
             // 

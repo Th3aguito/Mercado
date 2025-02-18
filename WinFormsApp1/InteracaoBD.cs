@@ -2,6 +2,7 @@
 using System;
 using WinFormsApp1;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 public class InteracaoBD
 {
@@ -13,6 +14,8 @@ public class InteracaoBD
 
         return instanciaInterna;
     }
+
+
     public string LoginUsuario(string cpf, string senha)
     {
         string tipoDoUsuario = "nenhum"; // Declaração de variável
@@ -235,11 +238,10 @@ public class InteracaoBD
 
     public bool AddProduto( string Codigo, string Descricao, string Valor)
     {
+        MySqlDataReader dr;
         int RowAffect = 0;
         try
         {
-
-
             string strigConexao = "Server = localhost; Database = Mercado; User Id = root; Password = ;";
             MySqlConnection conexao = new MySqlConnection(strigConexao);
 
@@ -249,36 +251,18 @@ public class InteracaoBD
             conexao.Open();
             comando.Connection = conexao;
             comando.CommandText = sql;
-            if (Codigo == "")
-            {
-                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-            }
-            else if (Descricao == "")
-            {
-                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-            }
-            else if (Valor == "")
-            {
-                MessageBox.Show("Não é possivel salvar: Existe componentes em brancos", "Aviso", MessageBoxButtons.OK);
-            }
-            else
-                RowAffect = comando.ExecuteNonQuery();
-
-            if (RowAffect >= 1)
-            {
-                MessageBox.Show("Dados adicionados com sucesso", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-                //TxtCodigo.Text = "";
-                //TxtDescricao.Text = "";
-                //TxtValor.Text = "";
-                //TxtDescricao.Focus();
-
-            }
-            else if (RowAffect == 0)
-            {
-                MessageBox.Show("Ocorreu um erro ao tentar adicionar dados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
+            RowAffect = comando.ExecuteNonQuery();
+            return true;
+            //if (RowAffect >= 1)
+            //{
+            //    MessageBox.Show("Dados adicionados com sucesso", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return true;
+            //}
+            //else if (RowAffect == 0)
+            //{
+            //    MessageBox.Show("Ocorreu um erro ao tentar adicionar dados", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return false;
+            //}
         }
         catch (Exception ex)
         {
@@ -286,6 +270,131 @@ public class InteracaoBD
             return false;
         }
     }
+
+    public bool AtualizarProduto(string Codigo, string Descricao, string Valor)
+    {
+        try
+        {
+            MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
+            int RowAffect = 0;
+            MySqlCommand Comando = new MySqlCommand();
+            String sql;
+            sql = "UPDATE Produtos Set Descricao = '" + Descricao + "' , Valor = " + Valor + " Where Produto = " + Codigo;
+            conexao.Open();
+            Comando.Connection = conexao;
+            Comando.CommandText = sql;
+            RowAffect = Comando.ExecuteNonQuery();
+            if (RowAffect == 1)
+            {
+                MessageBox.Show("Atualizado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexao.Close();
+                return true;
+
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível atualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+           
+        }
+
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
+            return false;
+        }
+    }
          
-}
+    public bool DeletarProduto(string Codigo, string Descricao, string Valor)
+    {
+        try { 
+        MySqlConnection conexao = new MySqlConnection("Server = localhost; database = Mercado; user ID = root; password = ;");
+        int RowAffect = 0;
+        MySqlCommand comando = new MySqlCommand();
+        String sql;
+        sql = "DELETE FROM Produtos WHERE Produto = " + " '" + Codigo + "'";
+        conexao.Open();
+        comando.Connection = conexao;
+        comando.CommandText = sql;
+        RowAffect = comando.ExecuteNonQuery();
+        if (RowAffect >= 1)
+        {
+           MessageBox.Show("Produto deletado com sucesso! ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning );
+            return true;
+        }
+        else
+        {
+            return false;
+            //MessageBox.Show("Não foi possível deletar, verifique os campos nulos e tente novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+        }
+
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
+            return false;
+        }
+    }
+
+
+    public bool inserirProd(string Codigo, int Quantidade, out string Produto, out string Descricao, out double Valor)
+    {
+        MySqlDataReader dr;
+        Produto = "";
+        Descricao = "";
+        Valor = 0;
+
+        try
+        {
+
+
+            string Conexao = "Server = localhost; Database = Mercado; User Id = root; Password = ";
+            MySqlConnection conexao = new MySqlConnection(Conexao);
+
+            MySqlCommand comando = new MySqlCommand();
+            string sql;
+            sql = "select * from Produtos where Produto = " + Codigo + ";";
+            conexao.Open();
+            comando.Connection = conexao;
+            comando.CommandText = sql;
+            dr = comando.ExecuteReader();
+            while (dr.Read())
+            {
+                Produto = dr.GetInt32(0).ToString();
+                Descricao = dr.GetString(1);
+                Valor = Convert.ToDouble(dr.GetString(2));
+            }
+            if (Produto.ToString() == "" && Quantidade.ToString() == "")
+            {
+                MessageBox.Show("Não há nenhum registro no banco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+            {
+                //double total = 0, quantidade = 0;
+                //txtcodigo.Text = Produto;
+                //txtpreco.Text = Descricao;
+                //txtpreco.Text = Valor;
+
+
+
+                double Preco_produto = Valor * Quantidade;
+                return true;
+
+
+            }
+            conexao.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Ocorreu um erro ao conectar ao banco de dados: " + ex.Message);
+            return false;
+        }
+
+    }
+    }
+
+
 
