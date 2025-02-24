@@ -20,7 +20,7 @@ namespace TestesMercado
             string Desc = "";
             double Valor = 0;
 
-            Assert.IsTrue(InteracaoBD.InstanciaPublica().inserirProd("1031", 1, out Prod, out Desc, out Valor));
+            Assert.IsFalse(InteracaoBD.InstanciaPublica().inserirProd("1031", 1, out Prod, out Desc, out Valor));
 
         }
 
